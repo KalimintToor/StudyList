@@ -8,6 +8,10 @@
 .AppleDouble
 .LSOverride
 
+.DS_Store
+StudyList.xcodeproj/xcuserdata/
+
+
 ## Storing some api keys and stuff that you don't want to be uploaded on Github
 Secrets.swift
 
