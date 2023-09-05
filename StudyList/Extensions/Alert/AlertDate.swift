@@ -40,8 +40,6 @@ extension UIViewController {
         
         alert.view.heightAnchor.constraint(equalToConstant: 300).isActive = true
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-//        datePicker.widthAnchor.constraint(equalTo: alert.view.widthAnchor).isActive = true
-//        datePicker.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         datePicker.heightAnchor.constraint(equalToConstant: 160).isActive = true
         datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 20).isActive = true
         

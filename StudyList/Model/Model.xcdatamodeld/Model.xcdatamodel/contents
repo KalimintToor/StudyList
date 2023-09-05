@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Contacts" representedClassName="Contacts" syncable="YES" codeGenerationType="class">
+<<<<<<< HEAD
         <attribute name="contactsImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+=======
+        <attribute name="contactsImage" optional="YES" attributeType="Binary"/>
+>>>>>>> 68d95025b96fd79788b572a5b5e98549b7f4a71f
         <attribute name="contactsMail" optional="YES" attributeType="String" defaultValueString="Unknown"/>
         <attribute name="contactsName" optional="YES" attributeType="String"/>
         <attribute name="contactsPhone" optional="YES" attributeType="String" defaultValueString="Unknown"/>
@@ -28,8 +32,14 @@
         <attribute name="weekDay" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
+<<<<<<< HEAD
         <element name="Contacts" positionX="0" positionY="0" width="128" height="118"/>
         <element name="ScheduleModel" positionX="160" positionY="192" width="128" height="193"/>
         <element name="TasksModel" positionX="0" positionY="0" width="128" height="133"/>
+=======
+        <element name="Contacts" positionX="-63" positionY="63" width="128" height="118"/>
+        <element name="ScheduleModel" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="TasksModel" positionX="-63" positionY="54" width="128" height="133"/>
+>>>>>>> 68d95025b96fd79788b572a5b5e98549b7f4a71f
     </elements>
 </model>

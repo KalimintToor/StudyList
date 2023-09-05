@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     // MARK: - Core Data stack
-    
     func applicationWillTerminate(_ application: UIApplication) {
         CoreDataManager.shared.saveContext()
     }
