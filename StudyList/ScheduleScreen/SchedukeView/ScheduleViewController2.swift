@@ -10,11 +10,7 @@ import FSCalendar
 import CoreData
 
 class ScheduleViewController3: UIViewController {
-    private let idScheduleCell = "idScheduleCell"
-    private let model = ScheduleScreenModel()
-    private lazy var viewModel = ScheduleViewModel(model: model)
-    
-    private var filteredSchedules: [ScheduleModel] = []
+    private lazy var viewModel = ScheduleViewModel()
     
     private lazy var scheduleView: ScheduleView = {
         let view = ScheduleView()
@@ -24,9 +20,9 @@ class ScheduleViewController3: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        model.fetchScheduleOptions()
+        viewModel.model.fetchScheduleOptions()
         scheduleOnDay(date: Date())
-        print(model.countModel())
+        print(viewModel.model.countModel())
     }
 
     override func viewDidLoad() {
@@ -41,7 +37,7 @@ class ScheduleViewController3: UIViewController {
 
         scheduleView.tableView.dataSource = self
         scheduleView.tableView.delegate = self
-        scheduleView.tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: idScheduleCell)
+        scheduleView.tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: idCell.idScheduleCell.rawValue)
 
         scheduleView.showHideButton.addTarget(self, action: #selector(buttonCalendar), for: .touchUpInside)
 
@@ -51,7 +47,7 @@ class ScheduleViewController3: UIViewController {
     
     @objc func addButtonTapped(){
         
-        let scheduleOption = OptionsScheduleTableViewController()
+        let scheduleOption = OptionsScheduleViewController2()
         navigationController?.pushViewController(scheduleOption, animated: true)
     }
     
@@ -65,7 +61,7 @@ class ScheduleViewController3: UIViewController {
     }
     
     private func deleteSchedule(at indexPath: IndexPath){
-        model.deleteSchedule(at: indexPath)
+        viewModel.model.deleteSchedule(at: indexPath)
         scheduleView.tableView.deleteRows(at: [indexPath], with: .fade)
     }
 
@@ -82,13 +78,13 @@ class ScheduleViewController3: UIViewController {
 
 extension ScheduleViewController3: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.countModel()
+        return viewModel.model.countModel()
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idScheduleCell, for: indexPath) as! ScheduleTableViewCell
-        if let schedule = model.getModel(indexPath: indexPath) {//getModel(indexPath: indexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell.idScheduleCell.rawValue, for: indexPath) as! ScheduleTableViewCell
+        if let schedule = viewModel.model.getModel(indexPath: indexPath) {//getModel(indexPath: indexPath) {
             cell.configure(model: schedule) // Вызовите configure с переданным моделью.
         }
         

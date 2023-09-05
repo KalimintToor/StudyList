@@ -1,15 +1,15 @@
 //
-//  ScheduleView + ext.swift
+//  TasksView + ext.swift
 //  StudyList
 //
-//  Created by Александр on 8/25/23.
+//  Created by Александр on 8/27/23.
 //
 
 import UIKit
 import FSCalendar
 import CoreData
 
-extension ScheduleView {
+extension TasksView {
     //MARK: АНИМАЦИЯ ТАБЛИЦЫ
     func setConstraints() {
         addSubview(calendar)

@@ -5,12 +5,30 @@
 //  Created by Александр on 7/30/23.
 //
 
-import Foundation
+import CoreData
+import UIKit
 
-protocol TaskReadyDelegate: class {
-    func taskReadyDidChange(newTaskReady: Bool)
+protocol TaskReadyDelegate: AnyObject {
+    func taskReadyDidChange(objectID: NSManagedObjectID, newValue: Bool)
 }
 
 protocol SwithRepeatProtocol: class {
     func switchrepeat(value: Bool)
+}
+
+protocol ContactsViewModelDelegate: AnyObject {
+    func updateContactsTableView()
+}
+
+protocol ColorSelectionDelegate: AnyObject {
+    func didSelectColor(color: String)
+}
+
+protocol OptionsColorsViewModelDelegate: AnyObject {
+    func viewModelDidRequestPush(viewController: UIViewController)
+}
+
+protocol OptionsScheduleViewModelDelegate: AnyObject {
+    func viewModelDidShowAlert(title: String, message: String?)
+    func viewModelDidRequestPush(viewController: UIViewController)
 }

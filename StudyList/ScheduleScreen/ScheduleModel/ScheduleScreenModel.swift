@@ -10,16 +10,14 @@ import CoreData
 
 class ScheduleScreenModel{
     var model: [ScheduleModel] = []
-    private(set) var filteredSchedules: [ScheduleModel] = []
+    var filteredSchedules: [ScheduleModel] = []
     
     var context: NSManagedObjectContext {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return CoreDataManager.shared.persistentContainer.viewContext
     }
     
     func fetchScheduleOptions() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ScheduleModel")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         do {
             let result = try context.fetch(fetchRequest)
@@ -32,9 +30,6 @@ class ScheduleScreenModel{
     
     func deleteSchedule(at indexPath: IndexPath) {
         let scheduleToDelete = filteredSchedules[indexPath.row]
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         context.delete(scheduleToDelete)
         

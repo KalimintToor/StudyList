@@ -6,16 +6,10 @@
 //
 
 import CoreData
-import UIKit
 import FSCalendar
 
 class ScheduleViewModel {
-    private var model = ScheduleScreenModel()
-    private(set) var filteredSchedules: [ScheduleModel] = []
-    
-    init(model: ScheduleScreenModel) {
-        self.model = model
-    }
+    let model = ScheduleScreenModel()
     
     func scheduleOnDay(date: Date) {
         let calendar = Calendar.current
@@ -33,7 +27,10 @@ class ScheduleViewModel {
             
             return false
         }.sorted { (schedule1, schedule2) -> Bool in
-            return schedule1.timeNumbers! < schedule2.timeNumbers!
+            if let timeNumbers1 = schedule1.timeNumbers, let timeNumbers2 = schedule2.timeNumbers {
+                return timeNumbers1 < timeNumbers2
+            }
+            return false
         }
         
         model.updateFilteredSchedules(filtered)

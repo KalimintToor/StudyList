@@ -1,25 +1,24 @@
 //
-//  ScheduleView.swift
+//  TasksView.swift
 //  StudyList
 //
-//  Created by Александр on 8/25/23.
+//  Created by Александр on 8/27/23.
 //
 
 import UIKit
-import FSCalendar
 import CoreData
+import FSCalendar
 
-class ScheduleView: UIView {
+class TasksView: UIView{
     
     var calendarHeightConstraint: NSLayoutConstraint!
-    
     let calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
         return calendar
     }()
     
-    lazy var showHideButton: UIButton = {
+    let showHideButton: UIButton = {
         let button = UIButton()
         button.setTitle("Open Calendar", for: .normal)
         button.setTitleColor(#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), for: .normal)
